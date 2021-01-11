@@ -1,6 +1,10 @@
 import socket
 
 
+ip = input("Enter server ip: ")
+port = input("Enter server port: ")
+
 sock = socket.socket()
-sock.connect(("127.0.0.1", 7654))
-sock.send("Hello world!".encode())
+sock.connect((ip, int(port)))
+message = input("Enter message: ")
+sock.send(message.encode())
