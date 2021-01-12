@@ -17,9 +17,10 @@ sock.listen(12)
 
 cli_sock, cli_add = sock.accept()
 print("Connection from " + str(cli_add[1]))
-try:
-    message = cli_sock.recv(2048)
-except Exception as e:
-    print("Something went wrong")
-else:
-    print(message.decode())
+while True:
+    try:
+        message = cli_sock.recv(2048)
+    except Exception as e:
+        print("Something went wrong")
+    else:
+        print(message.decode())

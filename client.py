@@ -6,5 +6,9 @@ port = input("Enter server port: ")
 
 sock = socket.socket()
 sock.connect((ip, int(port)))
-message = input("Enter message: ")
-sock.send(message.encode())
+while True:
+    message = input("Enter message: ")
+    if (message == "quit()"):
+        sock.close()
+        break
+    sock.send(message.encode())
